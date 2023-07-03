@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <title>Almacen de Libros</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../images/book-open-reader-solid.svg" type="image/x-icon">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/8aa89f7912.js" crossorigin="anonymous"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header id="header">
+</header>
+<main>
+    <div id="app" class="container">
+        <!-- <h1>Libros</h1> -->
+        <h4>Alta de libro</h4>
+        <form class="row g-3 fondo">
+            <div class="col-md-3">
+                <label for="titulo" class="form-label">Titulo</label>
+                <input type="text" class="form-control" name="titulo" id="titulo" v-model="titulo">
+            </div>
+            <div class="col-md-3">
+                <label for="autor" class="form-label">Autor</label>
+                <input type="text" class="form-control" name="autor" id="autor" v-model="autor">
+            </div>
+            <div class="col-md-1">
+                <label for="precio" class="form-label">Precio</label>
+                <input type="number" class="form-control" name="precio" id="precio" v-model="precio">
+            </div>
+            <div class="col-md-1">
+                <label for="stock" class="form-label">Stock</label>
+                <input type="number" class="form-control" name="stock" id="stock" v-model="stock">
+            </div>
+            <div class="col-md-3">
+                <label for="imagen" class="form-label">Imagen</label>
+                <input type="text" class="form-control" name="imagen" id="imagen" v-model="imagen">
+                <img width="100" :src="portada" alt="">
+            </div>
+            <div class="col-md-1">
+                <br>
+                <button type="button" class="btn btn-warning" v-on:click="grabar()"><i class="fa-regular fa-square-plus"></i></button>
+            </div>
+        </form>
+        <!-- <br> -->
+        <!-- <a class="btn btn-primary" href="../templates/libro_nuevo.html">Nuevo</a> -->
+        <!-- <br><br> -->
+        <div v-if="error">
+            <p>Lo sentimos , ........</p>
+        </div>
+        <div v-else>
+            <section v-if="cargando">
+            <div class="spinner-border"></div>
+            <p>Cargando .....</p>
+            </section>
+            <section v-else>
+                <h4>Lista de Libros</h4>
+                <div class="table-responsive">
+                    <table class="table table-info table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Titulo</th>
+                                <th scope="col">Autor</th>
+                                <th scope="col">Precio</th>
+                                <th scope="col">Stock</th>
+                                <th scope="col">Imagen</th>
+                                <th scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="" v-for="producto in productos">
+                                <td scope="row">{{producto.id}}</td>
+                                <td>{{producto.titulo}}</td>
+                                <td>{{producto.autor}}</td>
+                                <td>{{producto.precio}}</td>
+                                <td>{{producto.stock}}</td>
+                                <td>
+                                    <img width="60" :src="producto.imagen" :alt="producto.titulo">
+                                </td>
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        <a class="btn btn-warning" :href="'./libro_update.html?id='+ producto.id" ><i class="fa-regular fa-pen-to-square"></i></a>
+                                        <button type="button" class="btn btn-danger" v-on:click="eliminar(producto.id)" ><i class="fa-solid fa-trash"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </div>
+</main>
+<footer id="footer">
+</footer>
+<script>
+<!-- Link de bootstrap -->
+src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+<script src="../js/main.js"></script>
+<!-- Link de VUE -->
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="../js/productos.js"></script>
+</body>
+</html>

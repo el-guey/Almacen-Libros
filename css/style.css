@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    /* background-color:  #ecf0f1 ; */
+    /* background-color: rgba(0,0,0,0.3); */
+    background-image: url(../images/books2.jpg);
+    background-size: cover;
+    color:black
+}
+.form{
+    width: 50%;
+    margin: auto;
+    padding: 10px;
+    background-color:  #d1f2eb  ;
+}
+footer{
+    align-content: center;
+}
+footer> p{
+    text-align: center;
+}
+.img{
+    align-content: center;
+    align-items: center;
+    text-align: center;
+}
+.img >img{
+    max-width: 100px;
+}
+/* .etiqueta{
+    visibility: hidden;
+} */
+.down{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+h4{
+    padding:10px
+}
+.fondo{
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+    text-align: center;
+    /* font-size: 16px; */
+    font-weight: bold;
+}
