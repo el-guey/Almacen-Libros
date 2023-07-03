@@ -3,7 +3,7 @@ createApp({
 data() {
 return {
 productos:[],
-url:'http://fido9397.pythonanywhere.com/productos',
+url:'https://fido9397.pythonanywhere.com/productos',
 //url:'http://localhost:5000/productos',
 // si el backend esta corriendo local usar localhost 5000(si no lo subieron a pythonanywhere)
 //url:'http://promero.pythonanywhere.com/productos/', // si ya lo subieron a pythonanywhere
